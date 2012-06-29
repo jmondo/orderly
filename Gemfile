@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in tbt.gemspec
+# Specify your gem's dependencies in orderly.gemspec
 gemspec

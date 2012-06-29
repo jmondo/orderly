@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Tbt do
+describe Orderly do
   let(:this) { "<p>The first piece of content</p>" }
   let(:that) { "<p>The second piece of content</p>" }
 
