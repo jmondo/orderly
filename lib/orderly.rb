@@ -1,4 +1,5 @@
 require "orderly/version"
+require "rspec/expectations"
 
 module Orderly
   RSpec::Matchers.define :appear_before do |later_content|
