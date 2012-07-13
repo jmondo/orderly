@@ -7,12 +7,9 @@ module Orderly
         page.body.index(earlier_content) < page.body.index(later_content)
       rescue ArgumentError
         raise "Could not locate later content on page: #{later_content}"
-      rescue
+      rescue NoMethodError
         raise "Could not locate earlier content on page: #{earlier_content}"
       end
     end
   end
 end
-
-
-## TODO: make sure this gets hooked into rspec when loaded into another project

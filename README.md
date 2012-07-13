@@ -1,6 +1,6 @@
 # Orderly
 
-TODO: Write a gem description
+Rspec matcher for asserting that this appears_before(that) in rspec request specs
 
 ## Installation
 
@@ -18,12 +18,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In an rspec request spec, do
+
+    this.should appear_before(that)
+
+or, to assert that something does not appear before
+
+    this.should_not appear_before(that)
+
+Error handling in place for cases where this or that does not appear on the page.
+
+## Todo
+- Add TravisCI
 
 ## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Patches welcome! Submit a pull request.
