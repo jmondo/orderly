@@ -21,4 +21,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "capybara", ">= 1.1"
   gem.add_development_dependency "mocha", "~> 1.1"
   gem.add_development_dependency "sinatra", "~> 1.4"
+  gem.add_development_dependency "appraisal", "~> 1.0"
 end
