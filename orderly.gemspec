@@ -17,8 +17,8 @@ Gem::Specification.new do |gem|
 
   gem.rubyforge_project = "orderly"
 
-  gem.add_development_dependency "rspec"
-  gem.add_development_dependency "capybara"
-  gem.add_development_dependency "mocha"
-  gem.add_development_dependency "sinatra"
+  gem.add_development_dependency "rspec", ">= 2.14"
+  gem.add_development_dependency "capybara", ">= 1.1"
+  gem.add_development_dependency "mocha", "~> 1.1"
+  gem.add_development_dependency "sinatra", "~> 1.4"
 end
