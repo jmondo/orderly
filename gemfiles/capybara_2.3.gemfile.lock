@@ -2,6 +2,8 @@ PATH
   remote: ../
   specs:
     orderly (0.0.2)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
 
 GEM
   remote: https://rubygems.org/
@@ -59,5 +61,4 @@ DEPENDENCIES
   capybara (~> 2.3.0)
   mocha (~> 1.1)
   orderly!
-  rspec (>= 2.14)
   sinatra (~> 1.4)
