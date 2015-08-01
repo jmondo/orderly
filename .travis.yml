@@ -2,4 +2,12 @@ rvm:
   - 1.9.3
   - 2.0.0
   - 2.1.1
-script: 'bundle exec rspec'
+script: 'bundle exec rake'
+gemfile:
+  - gemfiles/capybara_1.1.gemfile
+  - gemfiles/capybara_2.0.gemfile
+  - gemfiles/capybara_2.1.gemfile
+  - gemfiles/capybara_2.2.gemfile
+  - gemfiles/capybara_2.3.gemfile
+  - gemfiles/capybara_2.4_rspec_2.gemfile
+  - gemfiles/capybara_2.4_rspec_3.gemfile

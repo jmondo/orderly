@@ -12,26 +12,26 @@ describe Orderly do
   describe "appear_before" do
     it "asserts this is before that" do
       page.visit "/thisthenthat"
-      this.should appear_before(that)
+      expect(this).to appear_before(that)
     end
 
     it "asserts this is not before that" do
       page.visit "/thatthenthis"
-      this.should_not appear_before(that)
+      expect(this).not_to appear_before(that)
     end
 
     it "handles for this missing" do
       page.visit "/thisnothat"
       error_text = "Could not locate later content on page: #{that}"
-      expect { this.should appear_before(that) }.to raise_error error_text
-      expect { this.should_not appear_before(that) }.to raise_error error_text
+      expect { expect(this).to appear_before(that) }.to raise_error error_text
+      expect { expect(this).not_to appear_before(that) }.to raise_error error_text
     end
 
     it "handles for this missing" do
       page.visit "/thatnothis"
       error_text = "Could not locate earlier content on page: #{this}"
-      expect { this.should appear_before(that) }.to raise_error error_text
-      expect { this.should_not appear_before(that) }.to raise_error error_text
+      expect { expect(this).to appear_before(that) }.to raise_error error_text
+      expect { expect(this).not_to appear_before(that) }.to raise_error error_text
     end
   end
 

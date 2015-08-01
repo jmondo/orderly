@@ -10,7 +10,10 @@ require 'capybara'
 require 'test_app'
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
+  if defined?(RSpec::Core::Version) && RSpec::Core::Version::STRING.to_f < 3.0
+    config.treat_symbols_as_metadata_keys_with_true_values = true
+  end
+
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
   config.mock_with :mocha
