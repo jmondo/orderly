@@ -6,7 +6,9 @@ module Orderly
     match do |earlier_content|
       begin
         if within_matcher
-          page.find(within_matcher[:within]).native.inner_html.index(earlier_content) < page.find(within_matcher[:within]).native.inner_html.index(later_content)
+          within within_matcher[:within] do
+            page.body.index(earlier_content) < page.body.index(later_content)
+          end
         else
           page.body.index(earlier_content) < page.body.index(later_content)
         end
