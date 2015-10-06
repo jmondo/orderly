@@ -25,6 +25,12 @@ class TestApp < Sinatra::Base
   end
 
   get '/thisthatthis' do
-    "#{this} <div class='within-block'> #{that + this} </div>"
+    "#{that}
+    <div class='outer-div'>
+      #{this}
+      <div class='inner-div'>
+      #{that + this}
+      </div>
+    </div>"
   end
 end

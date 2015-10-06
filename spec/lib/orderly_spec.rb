@@ -38,7 +38,27 @@ describe Orderly do
 
       specify "using a Capybara within block" do
         page.visit "/thisthatthis"
-        expect(that).to appear_before this, within: '.within-block'
+
+        within '.outer-div' do
+          expect(this).to appear_before that
+        end
+
+        within '.outer-div' do
+          expect(that).to_not appear_before this
+        end
+
+        within '.outer-div' do
+          expect(that).to appear_before this, within: '.inner-div'
+        end
+
+        within '.outer-div' do
+          expect(this).to_not appear_before that, within: '.inner-div'
+        end
+
+        expect(this).to appear_before that, within: '.outer-div'
+
+        expect(that).to_not appear_before this, within: '.outer-div'
+
       end
 
     end
