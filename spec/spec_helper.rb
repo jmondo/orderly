@@ -7,6 +7,7 @@
 
 require 'orderly'
 require 'capybara'
+require 'capybara/rspec' # load rspec 2 support
 require 'test_app'
 
 RSpec.configure do |config|

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'capybara'
 
-describe Orderly do
+describe Orderly, type: :feature do
   let(:this) { "<p>One piece of content</p>" }
   let(:that) { "<p>Another piece of content</p>" }
 
