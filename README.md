@@ -18,6 +18,10 @@ Or install it yourself as:
 
 ## Usage
 
+First of all require the gem in the spec file itself, or spec helper:
+
+    require 'orderly'
+
 In an rspec request spec, do
 
     this.should appear_before(that)
@@ -29,7 +33,7 @@ or, to assert that something does not appear before
     this.should_not appear_before(that)
     # or
     expect(this).to_not appear_before(that)
-    
+
 Error handling in place for cases where this or that does not appear on the page.
 
 ## Contributing
