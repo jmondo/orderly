@@ -33,16 +33,22 @@ describe Orderly do
       expect { expect(this).not_to appear_before(that) }.to raise_error error_text
     end
 
-    context 'handling within blocks' do
-
+    context "handling within blocks" do
       specify "using a Capybara within block" do
-        page.visit "/thisthatthis"
-        expect(that).to appear_before this, within: '.within-block'
-        expect(this).to_not appear_before that, within: '.within-block'
+        page.visit "/thatthisthatthis"
+
+        expect(that).to appear_before this
+
+        page.within ".outer-div" do
+          expect(this).to appear_before that
+          expect(that).to_not appear_before this
+        end
+
+        page.within ".inner-div" do
+          expect(that).to appear_before this
+          expect(this).to_not appear_before that
+        end
       end
-
     end
-
   end
-
 end

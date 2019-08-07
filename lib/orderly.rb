@@ -2,18 +2,26 @@ require "orderly/version"
 require "rspec/expectations"
 
 module Orderly
-  RSpec::Matchers.define :appear_before do |later_content, within_matcher|
+  RSpec::Matchers.define :appear_before do |later_content|
     match do |earlier_content|
       begin
-        if within_matcher
-          page.find(within_matcher[:within]).native.inner_html.index(earlier_content) < page.find(within_matcher[:within]).native.inner_html.index(later_content)
-        else
-          page.body.index(earlier_content) < page.body.index(later_content)
-        end
+        node = page.current_scope
+        html = html_for_node(node)
+        html.index(earlier_content) < html.index(later_content)
       rescue ArgumentError
         raise "Could not locate later content on page: #{later_content}"
       rescue NoMethodError
         raise "Could not locate earlier content on page: #{earlier_content}"
+      end
+    end
+
+    def html_for_node(node)
+      if node.is_a?(Capybara::Node::Document)
+        page.body
+      elsif node.native.respond_to?(:inner_html)
+        node.native.inner_html
+      else
+        page.driver.evaluate_script("arguments[0].innerHTML", node.native)
       end
     end
   end
