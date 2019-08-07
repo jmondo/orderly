@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
-gem "capybara", "~> 2.4.0"
+gem "rspec", "~> 2.99.0"
+gem "capybara", "~> 2.0"
+gem "rake", "~> 10.0"
 
 gemspec :path => "../"
