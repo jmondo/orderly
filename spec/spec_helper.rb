@@ -18,3 +18,6 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.mock_with :mocha
 end
+
+require "webdrivers" if ENV["DRIVER"] == "selenium_chrome_headless"
+Capybara.server = :webrick if Capybara.respond_to?(:server=)

@@ -5,9 +5,8 @@ describe Orderly do
   let(:this) { "<p>One piece of content</p>" }
   let(:that) { "<p>Another piece of content</p>" }
 
-  let(:page) do
-    Capybara::Session.new(:rack_test, TestApp)
-  end
+  let(:capybara_driver) { ENV.fetch("DRIVER", :rack_test).to_sym }
+  let(:page) { Capybara::Session.new(capybara_driver, TestApp) }
 
   describe "appear_before" do
     it "asserts this is before that" do
