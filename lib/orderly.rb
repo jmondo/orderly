@@ -5,7 +5,7 @@ module Orderly
   RSpec::Matchers.define :appear_before do |later_content|
     match do |earlier_content|
       begin
-        node = page.current_scope
+        node = page.respond_to?(:current_scope) ? page.current_scope : page.send(:current_node)
         html = html_for_node(node)
         html.index(earlier_content) < html.index(later_content)
       rescue ArgumentError
