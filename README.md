@@ -29,8 +29,12 @@ or, to assert that something does not appear before
     this.should_not appear_before(that)
     # or
     expect(this).to_not appear_before(that)
-    
+
 Error handling in place for cases where this or that does not appear on the page.
+
+## Changelog
+### 0.0.4 (unreleased)
+- Add support for capybara `within`-blocks
 
 ## Contributing
 Patches welcome! Submit a pull request.
