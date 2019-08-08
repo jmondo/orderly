@@ -33,7 +33,7 @@ or, to assert that something does not appear before
 Error handling in place for cases where this or that does not appear on the page.
 
 ## Changelog
-### 0.0.4 (unreleased)
+### 0.1.0 (2019-08-08)
 - Add support for capybara `within`-blocks
 
 ## Contributing
