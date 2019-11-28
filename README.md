@@ -93,6 +93,29 @@ To make the scenario pass we need add that option:
   end
 ```
 
+Also it works with text that's split in HTML:
+
+```ruby
+  let(:this) { "First name: Andrea" }
+  let(:that) { "Last name: Robbinovich" }
+
+  # Supposed that the page under / looks like
+  ##
+  ## "<dl>
+  ##   <dt>First name:</dt>
+  ##   <dd>Andrea</dt>
+  ##
+  ##   <dt>Last name:</dt>
+  ##   <dd>Robbinovich</dt>
+  ## </dl>"
+
+  scenario "user see ordered options" do
+    visit "/"
+
+    expect(this).to appear_before(that, only_text: true)
+  end
+```
+
 ## Changelog
 ### 0.1.1 (2019-11-28)
 - Add support for `only_text` option to remove html from scope it matches to

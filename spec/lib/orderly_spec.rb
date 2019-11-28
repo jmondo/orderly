@@ -2,8 +2,8 @@ require 'spec_helper'
 require 'capybara'
 
 describe Orderly do
-  let(:this)     { "<p>One piece of content</p>" }
-  let(:that)     { "<p>Another piece of content</p>" }
+  let(:this) { "<p>One piece of content</p>" }
+  let(:that) { "<p>Another piece of content</p>" }
 
   let(:capybara_driver) { ENV.fetch("DRIVER", :rack_test).to_sym }
   let(:page)            { Capybara::Session.new(capybara_driver, TestApp) }

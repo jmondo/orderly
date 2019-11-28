@@ -6,9 +6,9 @@ module Orderly
     match do |earlier_content|
       begin
         node = page.respond_to?(:current_scope) ? page.current_scope : page.send(:current_node)
-        html = only_text ? text_for_node(node) : html_for_node(node)
+        data = only_text ? text_for_node(node) : html_for_node(node)
 
-        html.index(earlier_content) < html.index(later_content)
+        data.index(earlier_content) < data.index(later_content)
       rescue ArgumentError
         raise "Could not locate later content on page: #{later_content}"
       rescue NoMethodError

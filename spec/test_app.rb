@@ -50,7 +50,6 @@ class TestApp < Sinatra::Base
     "<dl>
       <dt>#{first_name_dt}</dt>
       <dd>#{first_name_dd}</dt>
-
       <dt>#{last_name_dt}</dt>
       <dd>#{last_name_dd}</dt>
     </dl>"
