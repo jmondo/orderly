@@ -8,7 +8,7 @@ module Orderly
         node = page.respond_to?(:current_scope) ? page.current_scope : page.send(:current_node)
         data = only_text ? text_for_node(node) : html_for_node(node)
 
-        data.index(earlier_content) < data.index(later_content)
+        data.index(html_for_node(earlier_content)) < data.index(html_for_node(later_content))
       rescue ArgumentError
         raise "Could not locate later content on page: #{later_content}"
       rescue NoMethodError
@@ -17,8 +17,10 @@ module Orderly
     end
 
     def html_for_node(node)
-      if node.is_a?(Capybara::Node::Document)
-        page.body
+      if node.is_a?(String)
+        node
+      elsif node.is_a?(Capybara::Node::Document)
+        page.find("body").native.inner_html
       elsif node.native.respond_to?(:inner_html)
         node.native.inner_html
       else
