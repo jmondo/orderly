@@ -25,12 +25,34 @@ class TestApp < Sinatra::Base
   end
 
   get '/thatthisthatthis' do
-    "#{that}
+    <<-HTML
+    #{that}
     <div class='outer-div'>
       #{this}
       <div class='inner-div'>
       #{that + this}
       </div>
-    </div>"
+    </div>
+    HTML
+  end
+
+  get '/options' do
+    <<-HTML
+    <select>
+      <option>ability</option>
+      <option>option</option>
+    </select>
+    HTML
+  end
+
+  get '/description-list' do
+    <<-HTML
+    <dl>
+      <dt>First name:</dt>
+      <dd>Andrea</dt>
+      <dt>Last name:</dt>
+      <dd>Robbinovich</dt>
+    </dl>
+    HTML
   end
 end

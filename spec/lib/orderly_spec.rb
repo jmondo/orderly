@@ -50,5 +50,29 @@ describe Orderly do
         end
       end
     end
+
+    context "when only_text option is passed" do
+      context "when that is equal to option from HTML" do
+        let(:this) { "ability" }
+        let(:that) { "option" }
+
+        it "asserts this is before that" do
+          page.visit "/options"
+
+          expect(this).to appear_before(that, only_text: true)
+        end
+      end
+
+      context "when text is split in HTML" do
+        let(:this) { "First name: Andrea" }
+        let(:that) { "Last name: Robbinovich" }
+
+        it "asserts this is before that" do
+          page.visit "/description-list"
+
+          expect(this).to appear_before(that, only_text: true)
+        end
+      end
+    end
   end
 end
