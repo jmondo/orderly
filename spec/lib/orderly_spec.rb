@@ -6,7 +6,7 @@ describe Orderly do
   let(:that) { "<p>Another piece of content</p>" }
 
   let(:capybara_driver) { ENV.fetch("DRIVER", :rack_test).to_sym }
-  let(:page)            { Capybara::Session.new(capybara_driver, TestApp) }
+  let(:page) { Capybara::Session.new(capybara_driver, TestApp) }
 
   describe "appear_before" do
     it "asserts this is before that" do
@@ -68,7 +68,7 @@ describe Orderly do
         let(:that) { "Last name: Robbinovich" }
 
         it "asserts this is before that" do
-          page.visit "/content-across-DOM"
+          page.visit "/description-list"
 
           expect(this).to appear_before(that, only_text: true)
         end

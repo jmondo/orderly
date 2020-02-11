@@ -5,10 +5,8 @@ class TestApp < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :static, true
 
-  this     = "<p>One piece of content</p>"
-  that     = "<p>Another piece of content</p>"
-  option_1 = "<option>ability</option>"
-  option_2 = "<option>option</option>"
+  this = "<p>One piece of content</p>"
+  that = "<p>Another piece of content</p>"
 
   get '/thisthenthat' do
     this + that
@@ -27,31 +25,34 @@ class TestApp < Sinatra::Base
   end
 
   get '/thatthisthatthis' do
-    "#{that}
+    <<-HTML
+    #{that}
     <div class='outer-div'>
       #{this}
       <div class='inner-div'>
       #{that + this}
       </div>
-    </div>"
+    </div>
+    HTML
   end
 
   get '/options' do
-    option_1 + option_2
+    <<-HTML
+    <select>
+      <option>ability</option>
+      <option>option</option>
+    </select>
+    HTML
   end
 
-  get '/content-across-DOM' do
-    first_name_dt = "First name:"
-    first_name_dd = "Andrea"
-
-    last_name_dt = "Last name:"
-    last_name_dd = "Robbinovich"
-
-    "<dl>
-      <dt>#{first_name_dt}</dt>
-      <dd>#{first_name_dd}</dt>
-      <dt>#{last_name_dt}</dt>
-      <dd>#{last_name_dd}</dt>
-    </dl>"
+  get '/description-list' do
+    <<-HTML
+    <dl>
+      <dt>First name:</dt>
+      <dd>Andrea</dt>
+      <dt>Last name:</dt>
+      <dd>Robbinovich</dt>
+    </dl>
+    HTML
   end
 end

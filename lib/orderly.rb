@@ -27,17 +27,9 @@ module Orderly
     end
 
     def text_for_node(node)
-      text = begin
-        if node.is_a?(Capybara::Node::Document)
-          page.text
-        elsif node.native.respond_to?(:inner_html)
-          node.native.inner_text
-        else
-          page.driver.evaluate_script("arguments[0].innerText", node.native)
-        end
-      end
-
-      text.gsub(/[[:space:]]+/, ' ').strip
+      # NOTE: we need ot normalize spaces due to differences between rack-test
+      # and headless chrome.
+      node.text.gsub(/[[:space:]]+/, ' ').strip
     end
   end
 end
