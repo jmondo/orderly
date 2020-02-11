@@ -20,7 +20,7 @@ module Orderly
       if node.is_a?(String)
         node
       elsif node.is_a?(Capybara::Node::Document)
-        page.find("body").native.inner_html
+        html_for_node(node.find(:xpath, '//body'))
       elsif node.native.respond_to?(:inner_html)
         node.native.inner_html
       else
