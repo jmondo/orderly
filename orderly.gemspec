@@ -24,5 +24,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "appraisal", "~> 1.0"
   gem.add_development_dependency "selenium-webdriver"
   gem.add_development_dependency "webdrivers"
-  gem.add_development_dependency "byebug"
 end

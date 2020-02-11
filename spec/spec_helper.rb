@@ -8,7 +8,6 @@
 require 'orderly'
 require 'capybara'
 require 'test_app'
-require 'byebug'
 
 RSpec.configure do |config|
   if defined?(RSpec::Core::Version) && RSpec::Core::Version::STRING.to_f < 3.0
