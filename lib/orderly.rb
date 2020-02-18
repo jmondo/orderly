@@ -21,8 +21,8 @@ module Orderly
         node
       elsif node.is_a?(Capybara::Node::Document)
         html_for_node(node.find(:xpath, '//body'))
-      elsif node.native.respond_to?(:inner_html)
-        node.native.inner_html
+      elsif node.native.respond_to?(:to_html)
+        node.native.to_html
       else
         page.driver.evaluate_script("arguments[0].innerHTML", node.native)
       end
