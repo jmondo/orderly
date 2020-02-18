@@ -74,5 +74,15 @@ describe Orderly do
         end
       end
     end
+
+    context "when a capybara element is passed" do
+      it "asserts that the first capybara element appears before the second" do
+        page.visit "/elements-with-ids"
+        div1 = page.find("#div-1")
+        div2 = page.find("#div-2")
+
+        expect(div1).to appear_before(div2)
+      end
+    end
   end
 end

@@ -55,4 +55,11 @@ class TestApp < Sinatra::Base
     </dl>
     HTML
   end
+
+  get '/elements-with-ids' do
+    <<-HTML
+    <div id="div-1"></div>
+    <div id="div-2"></div>
+    HTML
+  end
 end
