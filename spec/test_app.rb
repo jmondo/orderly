@@ -62,4 +62,11 @@ class TestApp < Sinatra::Base
     <div id="div-2"></div>
     HTML
   end
+
+  get '/response-with-unclosed-tag' do
+    <<-HTML
+    <img id="img-1" src="https://i.picsum.photos/id/1082/200/300.jpg">
+    <img id="img-2" src="https://i.picsum.photos/id/1082/200/300.jpg">
+    HTML
+  end
 end
