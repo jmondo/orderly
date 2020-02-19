@@ -24,7 +24,7 @@ module Orderly
       elsif node.native.respond_to?(:to_html)
         node.native.to_html
       else
-        page.driver.evaluate_script("arguments[0].innerHTML", node.native)
+        page.driver.evaluate_script("arguments[0].outerHTML", node.native)
       end
     end
 

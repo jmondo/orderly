@@ -58,8 +58,8 @@ class TestApp < Sinatra::Base
 
   get '/elements-with-ids' do
     <<-HTML
-    <div id="div-1"></div>
-    <div id="div-2"></div>
+    <div id="div-1">Foo</div>
+    <div id="div-2">Bar</div>
     HTML
   end
 
