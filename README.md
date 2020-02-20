@@ -54,7 +54,7 @@ expect("First name: Andrea").to appear_before("Last name: Robbinovich", only_tex
 ```
 
 ## Changelog
-### unreleased
+### 0.1.1 (2020-02-20)
 - Add support for `only_text`-option
 - Add support for using capybara nodes
 
