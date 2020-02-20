@@ -25,9 +25,15 @@ let(:this) { "<li>Andrea</li>" }
 let(:that) { "<li>Luis</li>" }
 
 expect(this).to appear_before(that)
+
+# or use capybara elements
+this = find('.this')
+that = find('.that')
+
+expect(this).to appear_before(that)
 ```
 
-or, to assert that something does not appear before
+To assert that something does not appear before
 
 ```ruby
 expect(this).to_not appear_before(that)
@@ -50,6 +56,7 @@ expect("First name: Andrea").to appear_before("Last name: Robbinovich", only_tex
 ## Changelog
 ### unreleased
 - Add support for `only_text`-option
+- Add support for using capybara nodes
 
 ### 0.1.0 (2019-08-08)
 - Add support for capybara `within`-blocks
