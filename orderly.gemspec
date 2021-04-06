@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{orderly: an rspec assertion for request specs to assert that one piece of content appears on the page before another.}
   gem.summary       = %q{Assert this is before that}
   gem.homepage      = "https://github.com/jmondo/orderly"
+  gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
